@@ -1,13 +1,120 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Karla', sans-serif;
+  background-color: #293264;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
+
+main {
+  background-color: #F5F7FB;
+  background-image: url("./images/blob1.png"), url("./images/blob2.png");
+  background-repeat: no-repeat;
+  background-position: right top, left bottom;
+  text-align: center;
+  width: 700px;
+  height: 800px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Karla';
+  font-weight: 700;
+  font-size: 40px;
+  color: #293264;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-family: 'Karla';
+  font-weight: 700;
+  font-size: 20px;
+  color: #293264;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+}
+
+.button-container {
+  width: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 29px;
+}
+
+.start-button {
+  width: 193px;
+  height: 52px;
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  border-radius: 15px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .2s linear;
+}
+
+.start-button:hover {
+  background-color: #5d6dbe;
+}
+
+.question-section {
+  border-bottom: 0.8px solid #DBDEF0;
+  width: 550px;
+  text-align: left;
+  padding: 15px 0;
+}
+
+.options-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: -10px;
+}
+
+.option-button {
+  min-width: 72px;
+  padding: 6px 8px;
+  border: 1px solid #4D5B9E;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #293264;
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  margin: 12px 10px 10px;
+}
+
+.option-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.selected {
+  background-color: #D6DBF5;
+  border: 1px solid transparent;
+}
+
+.wrongAnswer:disabled {
+  background-color: #F8BCBC;
+}
+
+.rightAnswer:disabled {
+  background-color: #94D7A2;
+  opacity: 1;
+}
+
