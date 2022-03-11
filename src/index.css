@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,33 +19,52 @@ body {
 }
 
 main {
+  width: 100vw;
+  min-height: 100vh;
   background-color: #F5F7FB;
   background-image: url("./images/blob1.png"), url("./images/blob2.png");
   background-repeat: no-repeat;
   background-position: right top, left bottom;
   text-align: center;
-  width: 700px;
-  height: 800px;
-  border-radius: 15px;
   display: flex;
+  align-items: center;  
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+}
+
+@media (min-width: 1440px) {
+  main {
+    width: 700px;
+    min-height: 800px;
+    border-radius: 15px;
+  }
 }
 
 h1 {
   font-family: 'Karla';
   font-weight: 700;
-  font-size: 40px;
+  font-size: 2rem;
   color: #293264;
   margin-bottom: 15px;
+}
+
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 2.5rem;
+  }
 }
 
 h2 {
   font-family: 'Karla';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 0.85rem;
   color: #293264;
+}
+
+@media (min-width: 1440px) {
+  h2 {
+    font-size: 1.25rem;
+  }
 }
 
 button {
@@ -49,35 +72,58 @@ button {
 }
 
 .button-container {
-  width: 550px;
+  margin-top: 20px;
+  height: 70px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  margin-top: 29px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@media (min-width: 1440px) {
+  .button-container {
+    width: 550px;
+    height: auto;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
 }
 
 .start-button {
-  width: 193px;
-  height: 52px;
+  width: 185px;
+  height: 43px;
   background-color: #4D5B9E;
   color: #F5F7FB;
   border-radius: 15px;
   border: none;
   font-weight: 500;
-  font-size: 16px;
+  font-size: .8rem;
   cursor: pointer;
   transition: all .2s linear;
 }
 
+@media (min-width: 1440px) {
+  .start-button {
+    width: 193px;
+    height: 52px;
+    font-size: 1rem;
+  }
+}
 .start-button:hover {
   background-color: #5d6dbe;
 }
 
 .question-section {
+  width: 95%;
   border-bottom: 0.8px solid #DBDEF0;
-  width: 550px;
   text-align: left;
-  padding: 15px 0;
+  padding: 10px;
+}
+
+@media (min-width: 1440px) {
+  .question-section {
+    width: 550px;
+  }
 }
 
 .options-container {
@@ -94,9 +140,15 @@ button {
   background-color: transparent;
   color: #293264;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 0.6rem;
   cursor: pointer;
   margin: 12px 10px 10px;
+}
+
+@media (min-width: 1440px) {
+  .option-button {
+    font-size: 0.65rem;
+  }
 }
 
 .option-button:disabled {
