@@ -122,7 +122,8 @@ function App() {
         }
         {game && !endScreen &&  
           <>
-            {!loading ? <LoadingIcon /> : 
+            {!loading ? 
+              <LoadingIcon /> : 
               <>
                 {questionary.map(item => <QuestionCard key={item.questionId} question={item} handleClick={selectOption} scoreboard={endScreen}/>)}
                 <div className="button-container">

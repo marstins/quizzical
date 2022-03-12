@@ -46,7 +46,7 @@ h2 {
 
 @media (min-width: 1440px) {
   h2 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }
 
@@ -63,6 +63,7 @@ main {
   justify-content: center;
   flex-direction: column;
   margin: auto;
+  padding: 20px 0 0;
 }
 
 @media (min-width: 1440px) {
@@ -70,6 +71,7 @@ main {
     width: 700px;
     min-height: 800px;
     border-radius: 15px; 
+    padding: 0;
   }
 }
 
@@ -124,10 +126,6 @@ button {
   border-bottom: 0.8px solid #DBDEF0;
   text-align: left;
   padding: 5px 10px;
-}
-
-.question-section:first-child {
-  margin-top: 20px;
 }
 
 @media (min-width: 1440px) {
