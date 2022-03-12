@@ -1,8 +1,9 @@
 import {useState, useEffect} from "react"
-import QuestionCard from "./components/QuestionCard"
-import Button from "./components/Button"
 import {decode} from "html-entities"
 import { nanoid } from "nanoid"
+import QuestionCard from "./components/QuestionCard"
+import Button from "./components/Button"
+import LoadingIcon from "./components/LoadingIcon"
 
 function App() {
   const [quiz, setQuiz] = useState([])
@@ -10,6 +11,7 @@ function App() {
   const [game, setGame] = useState(false)
   const [endScreen, setEndScreen] = useState(false)
   const [score, setScore] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   useEffect(function() {
     const answers = questionary.map(question => question.answers)
@@ -20,9 +22,8 @@ function App() {
 
   useEffect(function() {
     if (game && !endScreen) {
-      fetch("https://opentdb.com/api.php?amount=5&type=multiple")
-      .then(res => res.json())
-      .then(data => setQuiz(data.results))
+      getQuiz()
+        .then(quiz => setQuiz(quiz))
     } 
   }, [game, endScreen])
 
@@ -33,6 +34,13 @@ function App() {
       )
     })
   }, [quiz])
+
+  async function getQuiz() {
+    const response = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
+    const data = await response.json()
+    setLoading(true)
+    return data.results
+  }
 
   function createQuestion(entry) {
     const otherAnswers = entry.incorrect_answers.map(answer => ({answerTitle: decode(answer), answerId: nanoid(), isRight: false, isSelected: false}))
@@ -97,6 +105,7 @@ function App() {
     setQuiz([])
     setQuestionary([])
     setEndScreen(false)
+    setLoading(false)
   }
 
   return (
@@ -111,14 +120,18 @@ function App() {
             </div>
           </>
         }
-        {game && !endScreen && 
+        {game && !endScreen &&  
           <>
-            {questionary.map(item => <QuestionCard key={item.questionId} question={item} handleClick={selectOption} scoreboard={endScreen}/>)}
-            <div className="button-container">
-              <Button text={"End Game"} handleClick={endGame}/> 
-            </div> 
+            {!loading ? <LoadingIcon /> : 
+              <>
+                {questionary.map(item => <QuestionCard key={item.questionId} question={item} handleClick={selectOption} scoreboard={endScreen}/>)}
+                <div className="button-container">
+                <Button text={"End Game"} handleClick={endGame}/> 
+                </div>
+              </>
+            }   
           </>
-        } 
+        }
         {game && endScreen &&
           <>
             {questionary.map(item => <QuestionCard key={item.questionId} question={item} handleClick={selectOption} scoreboard={endScreen}/>)}
