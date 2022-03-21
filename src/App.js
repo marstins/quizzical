@@ -6,11 +6,17 @@ import Button from "./components/Button"
 import LoadingIcon from "./components/LoadingIcon"
 
 function App() {
+  // Store API response
   const [quiz, setQuiz] = useState([])
+  // Store needed data from API response
   const [questionary, setQuestionary] = useState([])
+  // Store user score
   const [score, setScore] = useState(0)
+  // Control if game has started
   const [game, setGame] = useState(false)
+  // Control if game is on end screen (screen with score)
   const [endScreen, setEndScreen] = useState(false)
+  // Control if API request has been completed
   const [loading, setLoading] = useState(false)
 
   // Check for changes in questionary and set the score value
@@ -38,7 +44,7 @@ function App() {
     })
   }, [quiz])
 
-  // Make request to api and set loading to true, meaning the request has been finalized
+  // Make request to api and set loading to true, meaning the request has been completed
   async function getQuiz() {
     const response = await fetch("https://opentdb.com/api.php?amount=5&type=multiple")
     const data = await response.json()
