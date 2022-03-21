@@ -2,6 +2,7 @@
 export default function Question({handleClick, question, scoreboard}) {
   const {answers} = question 
 
+  // Check for option status and if the game is at the end screen, then return correct style to apply to option
   function optionCheck(isSelected, isRight) {
     if (!scoreboard && isSelected) {
       return "selected"

@@ -1,3 +1,12 @@
+:root {
+  --light-blue: #D6DBF5;
+  --medium-blue: #4D5B9E;
+  --dark-blue: #293264;
+  --light-green: #94D7A2;
+  --light-red: #F8BCBC;
+  --white: #F5F7FB;
+}
+
 html {
   font-size: 16px;
 }
@@ -10,7 +19,7 @@ html {
 
 body {
   font-family: 'Karla', sans-serif;
-  background-color: #293264;
+  background-color: var(--dark-blue);
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -26,7 +35,7 @@ body {
 h1 {
   font-weight: 700;
   font-size: 2rem;
-  color: #293264;
+  color: var(--dark-blue);
   margin-bottom: 15px;
 }
 
@@ -39,7 +48,7 @@ h1 {
 h2 {
   font-weight: 700;
   font-size: .8rem;
-  color: #293264;
+  color: var(--dark-blue);
 }
 
 @media (min-width: 1440px) {
@@ -48,10 +57,14 @@ h2 {
   }
 }
 
+button {
+  font-family: 'Inter', sans-serif;
+}
+
 main {
   width: 100vw;
   min-height: 100vh;
-  background-color: #F5F7FB;
+  background-color: var(--white);
   background-image: url("./images/blob1.png"), url("./images/blob2.png");
   background-repeat: no-repeat;
   background-position: right top, left bottom;
@@ -71,10 +84,6 @@ main {
     border-radius: 15px; 
     padding: 0;
   }
-}
-
-button {
-  font-family: 'Inter', sans-serif;
 }
 
 .button-container {
@@ -98,8 +107,8 @@ button {
 .start-button {
   width: 185px;
   height: 43px;
-  background-color: #4D5B9E;
-  color: #F5F7FB;
+  background-color: var(--medium-blue);
+  color: var(--white);
   border-radius: 15px;
   border: none;
   font-weight: 500;
@@ -116,12 +125,13 @@ button {
   }
 }
 .start-button:hover {
-  background-color: #5d6dbe;
+  color: var(--dark-blue);
+  background-color: var(--light-blue);
 }
 
 .question-section {
   width: 100%;
-  border-bottom: 0.8px solid #DBDEF0;
+  border-bottom: 0.8px solid var(--light-blue);
   text-align: left;
   padding: 5px 10px;
 }
@@ -143,10 +153,10 @@ button {
 .option-button {
   min-width: 70px;
   padding: 6px 8px;
-  border: 1px solid #4D5B9E;
+  border: 1px solid var(--medium-blue);
   border-radius: 8px;
   background-color: transparent;
-  color: #293264;
+  color: var(--dark-blue);
   font-weight: bold;
   font-size: 0.6rem;
   cursor: pointer;
@@ -166,16 +176,16 @@ button {
 }
 
 .selected {
-  background-color: #D6DBF5;
+  background-color: var(--light-blue);
   border: 1px solid transparent;
 }
 
 .wrongAnswer:disabled {
-  background-color: #F8BCBC;
+  background-color: var(--light-red);
 }
 
 .rightAnswer:disabled {
-  background-color: #94D7A2;
+  background-color: var(--light-green);
   opacity: 1;
 }
 
@@ -183,7 +193,7 @@ button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 8px solid #4D5B9E;
+  border: 8px solid var(--medium-blue);
   border-right-color: transparent;
 	border-bottom-color: transparent;
   transition: all .5s ease-in;
